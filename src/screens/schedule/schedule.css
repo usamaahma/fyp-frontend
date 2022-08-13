@@ -1,0 +1,10 @@
+.scheduleeee{
+    background-color: #0d3e02!important ;
+color: white;
+margin-bottom: 2rem;
+}
+.space{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
