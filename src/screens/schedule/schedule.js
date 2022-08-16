@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./schedule.css";
-import { DatePicker, Space } from "antd";
-import { Container } from "react-bootstrap";
+import { DatePicker, Button, Space, Radio } from "antd";
+import Container from "react-bootstrap/Container";
+import { schedule } from "../../config/axios";
 
 const { RangePicker } = DatePicker;
-const onChange = (value, dateString) => {
-  console.log("Selected Time: ", value);
-  console.log("Formatted Selected Time: ", dateString);
-};
-
-const onOk = (value) => {
-  console.log("onOk: ", value);
-};
 
 function Schedule() {
+  const [size, setSize] = useState();
+
+  const handleSizeChange = (moment, datestring) => {
+    console.log(moment, datestring);
+  };
+  const onSchedulecreate = () => {
+    console.log("ckicked");
+  };
+
   return (
     <div>
       <div>
@@ -22,68 +24,62 @@ function Schedule() {
       <Container>
         <div className="space">
           <h3>Select Supervisor</h3>
-          <Space direction="vertical" size={12}>
-            <RangePicker
-              showTime={{
-                format: "HH:mm",
-              }}
-              format="YYYY-MM-DD HH:mm"
-              onChange={onChange}
-              onOk={onOk}
-            />
-          </Space>
+          <div className="updatebuttondiv">
+            <Space direction="vertical" size={12}>
+              <RangePicker onChange={handleSizeChange} size={size} />
+            </Space>
+          </div>
         </div>
         <div className="space">
           <h3>Proposal Submission</h3>
-          <Space direction="vertical" size={12}>
-            <RangePicker
-              showTime={{
-                format: "HH:mm",
-              }}
-              format="YYYY-MM-DD HH:mm"
-              onChange={onChange}
-              onOk={onOk}
-            />
-          </Space>
+          <div className="updatebuttondiv">
+            <Space direction="vertical" size={12}>
+              <Radio.Group
+                value={size}
+                onChange={onSchedulecreate}
+              ></Radio.Group>
+
+              <RangePicker size={size} />
+            </Space>
+          </div>
         </div>
         <div className="space">
           <h3>SRS Submission</h3>
-          <Space direction="vertical" size={12}>
-            <RangePicker
-              showTime={{
-                format: "HH:mm",
-              }}
-              format="YYYY-MM-DD HH:mm"
-              onChange={onChange}
-              onOk={onOk}
-            />
-          </Space>
+          <div className="updatebuttondiv">
+            <Space direction="vertical" size={12}>
+              <Radio.Group
+                value={size}
+                onChange={onSchedulecreate}
+              ></Radio.Group>
+
+              <RangePicker size={size} />
+            </Space>
+          </div>
         </div>
         <div className="space">
           <h3>Mid Defence Submission</h3>
-          <Space direction="vertical" size={12}>
-            <RangePicker
-              showTime={{
-                format: "HH:mm",
-              }}
-              format="YYYY-MM-DD HH:mm"
-              onChange={onChange}
-              onOk={onOk}
-            />
-          </Space>
+          <div className="updatebuttondiv">
+            <Space direction="vertical" size={12}>
+              <Radio.Group
+                value={size}
+                onChange={onSchedulecreate}
+              ></Radio.Group>
+
+              <RangePicker size={size} />
+            </Space>
+          </div>
         </div>
         <div className="space">
           <h3>Final Defence Submission</h3>
-          <Space direction="vertical" size={12}>
-            <RangePicker
-              showTime={{
-                format: "HH:mm",
-              }}
-              format="YYYY-MM-DD HH:mm"
-              onChange={onChange}
-              onOk={onOk}
-            />
-          </Space>
+          <div style={{ display: "flex" }}>
+            <Space direction="vertical" size={12}>
+              <Radio.Group
+                value={size}
+                onChange={onSchedulecreate}
+              ></Radio.Group>
+              <RangePicker size={size} />
+            </Space>
+          </div>
         </div>
       </Container>
     </div>

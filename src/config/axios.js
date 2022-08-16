@@ -35,5 +35,16 @@ groups.interceptors.request.use(
     return Promise.reject(err);
   }
 );
+const schedule = axios.create({
+  baseURL: `${url}schedule`,
+});
+schedule.interceptors.request.use(
+  (req) => {
+    return req;
+  },
+  (err) => {
+    return Promise.reject(err);
+  }
+);
 
-export { login, users, groups };
+export { login, users, groups, schedule };
