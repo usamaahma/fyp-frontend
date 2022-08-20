@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Row, Col } from "antd";
 import "./login.css";
 import { Form, Input, Button, message } from "antd";
-import { login } from "../../config/axios.js";
+import { login, users } from "../../config/axios.js";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLoginState } from "../../redux/actions";
+import { setLoginState, setUserState } from "../../redux/actions";
 
 function Login() {
   const abc = localStorage.getItem("feathers-jwt-token");
@@ -17,17 +17,21 @@ function Login() {
     const data1 = {
       email: values.email,
       password: values.password,
-      strategy: "local",    };
+      strategy: "local",
+    };
 
     login({
       method: "post",
       data: data1,
     })
       .then((res) => {
-        console.log(res.data);
         if (res.data.user.role === 0) {
           localStorage.setItem("feathers-jwt-token", res.data.accessToken);
+          localStorage.setItem("feathers-id", res.data.user._id);
+
           dispatch(setLoginState(true));
+          dispatch(setUserState(res.data.user));
+
           navigate("/dashboard");
         } else {
           message.error("paj jaoe shoryo");
@@ -46,8 +50,27 @@ function Login() {
     if (abc === null) {
       navigate("/");
     } else {
-      dispatch(setLoginState(true));
-      navigate("/dashboard");
+      const id = localStorage.getItem("feathers-id");
+
+      users(`/${id}`, {
+        method: "get",
+        headers: {
+          Authorization: `Bearer ${abc}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          localStorage.setItem("feathers-id", res.data._id);
+
+          dispatch(setLoginState(true));
+          dispatch(setUserState(res.data));
+
+          navigate("/dashboard");
+        })
+
+        .catch(() => {
+          message.error("Email or Password is incorrect, please try again!");
+        });
     }
   }, []);
 

@@ -2,6 +2,7 @@ import * as t from "../actionsTypes";
 
 const initState = {
   isLoggedIn: false,
+  user: {},
 };
 
 export default function authReducer(state = initState, action) {
@@ -10,6 +11,12 @@ export default function authReducer(state = initState, action) {
       return {
         ...state,
         isLoggedIn: action.payload, // we set this as true on login
+      };
+
+    case t.SET_USER_STATE:
+      return {
+        ...state,
+        user: action.payload, // we set this as true on login
       };
 
     default:

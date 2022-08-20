@@ -6,3 +6,10 @@ export const setLoginState = (payload) => (dispatch) => {
     payload,
   });
 };
+
+export const setUserState = (payload) => (dispatch) => {
+  dispatch({
+    type: t.SET_USER_STATE,
+    payload,
+  });
+};
