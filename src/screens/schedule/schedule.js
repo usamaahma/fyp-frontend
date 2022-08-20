@@ -20,13 +20,38 @@ function Schedule() {
 
     switch (valuechange) {
       case "supervisor":
-        data.supervisor = datestring;
+        let d = { startingdate: datestring[0], endingdate: datestring[1] };
+        data.supervisor = d;
+
+        break;
+
+      case "proposal":
+        let e = { startingdate: datestring[0], endingdate: datestring[1] };
+        data.proposal = e;
+
+        break;
+      case "srs":
+        let r = { startingdate: datestring[0], endingdate: datestring[1] };
+        data.srs = r;
+
+        break;
+
+      case "middefence":
+        let h = { startingdate: datestring[0], endingdate: datestring[1] };
+        data.middefence = h;
+
+        break;
+
+      case "finaldefence":
+        let p = { startingdate: datestring[0], endingdate: datestring[1] };
+        data.finaldefence = p;
 
         break;
 
       default:
         break;
     }
+    setloading(true);
 
     const abc = localStorage.getItem("feathers-jwt-token");
 
@@ -40,10 +65,12 @@ function Schedule() {
     })
       .then((res) => {
         setdata(res.data);
+        setloading(false);
       })
 
       .catch(() => {
         message.error("something went wrong, please try again!");
+        setloading(false);
       });
   };
 
@@ -82,11 +109,17 @@ function Schedule() {
             <h3>Select Supervisor</h3>
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
+                {!loading && (
+                  <p>
+                    {data?.supervisor?.startingdate} --{" "}
+                    {data?.supervisor?.endingdate}
+                  </p>
+                )}
+
                 <RangePicker
                   onChange={(moment, datestring) =>
                     handleChange(moment, datestring, "supervisor")
                   }
-                  defaultValue={[moment()]}
                 />
               </Space>
             </div>
@@ -95,11 +128,18 @@ function Schedule() {
             <h3>Proposal Submission</h3>
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
+                {!loading && (
+                  <p>
+                    {data?.proposal?.startingdate} --{" "}
+                    {data?.proposal?.endingdate}
+                  </p>
+                )}
+
                 <RangePicker
                   onChange={(moment, datestring) =>
-                    handleChange(moment, datestring, "supervisor")
+                    handleChange(moment, datestring, "proposal")
                   }
-                  defaultValue={data?.supervisor}
+                  // defaultValue={data?.supervisor}
                 />
               </Space>
             </div>
@@ -108,11 +148,16 @@ function Schedule() {
             <h3>SRS Submission</h3>
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
+                {!loading && (
+                  <p>
+                    {data?.srs?.startingdate} -- {data?.srs?.endingdate}
+                  </p>
+                )}
                 <RangePicker
                   onChange={(moment, datestring) =>
-                    handleChange(moment, datestring, "supervisor")
+                    handleChange(moment, datestring, "srs")
                   }
-                  defaultValue={data?.supervisor}
+                  // defaultValue={data?.supervisor}
                 />
               </Space>
             </div>
@@ -121,11 +166,17 @@ function Schedule() {
             <h3>Mid Defence Submission</h3>
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
+                {!loading && (
+                  <p>
+                    {data?.middefence?.startingdate} --{" "}
+                    {data?.middefence?.endingdate}
+                  </p>
+                )}
                 <RangePicker
                   onChange={(moment, datestring) =>
-                    handleChange(moment, datestring, "supervisor")
+                    handleChange(moment, datestring, "middefence")
                   }
-                  defaultValue={data?.supervisor}
+                  // defaultValue={data?.supervisor}
                 />
               </Space>
             </div>
@@ -134,11 +185,17 @@ function Schedule() {
             <h3>Final Defence Submission</h3>
             <div style={{ display: "flex" }}>
               <Space direction="vertical" size={12}>
+                {!loading && (
+                  <p>
+                    {data?.finaldefence?.startingdate} --{" "}
+                    {data?.finaldefence?.endingdate}
+                  </p>
+                )}
                 <RangePicker
                   onChange={(moment, datestring) =>
-                    handleChange(moment, datestring, "supervisor")
+                    handleChange(moment, datestring, "finaldefence")
                   }
-                  defaultValue={data?.supervisor}
+                  // defaultValue={data?.supervisor}
                 />
               </Space>
             </div>
