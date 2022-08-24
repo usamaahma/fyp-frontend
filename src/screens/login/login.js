@@ -83,7 +83,7 @@ function Login() {
             <img
               className="imgelgu"
               alt="sasa"
-              src="/assets/images/lgulogo.png"
+              src="https://paperpk.com/uploads/co_img/1551094690.png"
             ></img>
           </div>
           <div>
