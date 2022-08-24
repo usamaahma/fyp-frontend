@@ -1,0 +1,33 @@
+.stats{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carddivvv{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+}
+.ant-statistic-content{
+    font-size: 50px !important;
+    color: white !important;
+margin-left: 5.5rem;
+}
+.ant-card-body{
+    background-color: #228B22;
+    height: 8rem;
+}
+.ant-card-head{
+    background-color: #0D3E02 !important;
+}
+.ant-card-head-title{
+    color: white !important;
+    font-size: 2rem;
+}
+.fall20{
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    ;}
+    

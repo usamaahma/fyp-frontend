@@ -110,7 +110,7 @@ function Schedule() {
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
                 {!loading && (
-                  <p>
+                  <p className="schdes">
                     {data?.supervisor?.startingdate} --{" "}
                     {data?.supervisor?.endingdate}
                   </p>
@@ -129,7 +129,7 @@ function Schedule() {
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
                 {!loading && (
-                  <p>
+                  <p className="schdes">
                     {data?.proposal?.startingdate} --{" "}
                     {data?.proposal?.endingdate}
                   </p>
@@ -149,7 +149,7 @@ function Schedule() {
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
                 {!loading && (
-                  <p>
+                  <p className="schdes">
                     {data?.srs?.startingdate} -- {data?.srs?.endingdate}
                   </p>
                 )}
@@ -167,7 +167,7 @@ function Schedule() {
             <div className="updatebuttondiv">
               <Space direction="vertical" size={12}>
                 {!loading && (
-                  <p>
+                  <p className="schdes">
                     {data?.middefence?.startingdate} --{" "}
                     {data?.middefence?.endingdate}
                   </p>
@@ -183,10 +183,10 @@ function Schedule() {
           </div>
           <div className="space">
             <h3>Final Defence Submission</h3>
-            <div style={{ display: "flex" }}>
+            <div>
               <Space direction="vertical" size={12}>
                 {!loading && (
-                  <p>
+                  <p className="schdes">
                     {data?.finaldefence?.startingdate} --{" "}
                     {data?.finaldefence?.endingdate}
                   </p>

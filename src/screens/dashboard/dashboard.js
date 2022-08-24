@@ -8,11 +8,13 @@ import {
   LogoutOutlined,
   UsergroupAddOutlined,
   ScheduleOutlined,
+  WindowsOutlined,
 } from "@ant-design/icons";
 import Students from "../Student/Students";
 import Supervisor from "../supervisors/supervisor";
 import Groups from "../groups/groups";
 import Schedule from "../schedule/schedule";
+import Dashboardd from "../dashboardd/dashboardd";
 
 const { Sider } = Layout;
 
@@ -63,9 +65,9 @@ function Dashboard() {
                 className="menuitems"
                 onClick={() => setmenub(1)}
                 key="1"
-                icon={<UserOutlined />}
+                icon={<WindowsOutlined />}
               >
-                Students
+                Dashboard
               </Menu.Item>
               <Menu.Item
                 className="menuitems"
@@ -73,20 +75,28 @@ function Dashboard() {
                 key="2"
                 icon={<UserOutlined />}
               >
-                Supervisors
+                Students
               </Menu.Item>
               <Menu.Item
                 className="menuitems"
                 onClick={() => setmenub(3)}
                 key="3"
+                icon={<UserOutlined />}
+              >
+                Supervisors
+              </Menu.Item>
+              <Menu.Item
+                className="menuitems"
+                onClick={() => setmenub(4)}
+                key="4"
                 icon={<UsergroupAddOutlined />}
               >
                 Groups
               </Menu.Item>
               <Menu.Item
                 className="menuitems"
-                onClick={() => setmenub(4)}
-                key="4"
+                onClick={() => setmenub(5)}
+                key="5"
                 icon={<ScheduleOutlined />}
               >
                 Schedule
@@ -95,7 +105,7 @@ function Dashboard() {
               <Menu.Item
                 className="menuitems"
                 onClick={logout}
-                key="5"
+                key="6"
                 icon={<LogoutOutlined />}
               >
                 Logout
@@ -103,10 +113,11 @@ function Dashboard() {
             </Menu>
           </Sider>
           <Layout className="site-layout" style={{ marginLeft: 200 }}>
-            {menub === 1 && <Students />}
-            {menub === 2 && <Supervisor />}
-            {menub === 3 && <Groups />}
-            {menub === 4 && <Schedule />}
+            {menub === 1 && <Dashboardd />}
+            {menub === 2 && <Students />}
+            {menub === 3 && <Supervisor />}
+            {menub === 4 && <Groups />}
+            {menub === 5 && <Schedule />}
           </Layout>
         </Layout>
       ) : (

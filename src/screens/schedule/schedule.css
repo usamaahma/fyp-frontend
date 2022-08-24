@@ -7,7 +7,13 @@ margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
+    margin-bottom: 4rem;
 }
-.updatebuttondiv{
-    display: flex;
+.schdes{
+    font-weight: 800;
+    color: #0d3e02;
+    margin-right: 10rem;
+}
+.ant-space-vertical{
+    flex-direction:row!important;
 }
