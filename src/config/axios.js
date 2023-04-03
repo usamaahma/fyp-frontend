@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "https://fyp-backend-heroku.herokuapp.com/";
+const url = "https://fypbackend-slur.onrender.com//";
 
 const login = axios.create({
   baseURL: `${url}authentication`,

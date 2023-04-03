@@ -9,10 +9,8 @@ import { setLoginState, setUserState } from "../../redux/actions";
 
 function Login() {
   const abc = localStorage.getItem("feathers-jwt-token");
-
   let navigate = useNavigate();
   const dispatch = useDispatch();
-
   const onFinish = (values) => {
     const data1 = {
       email: values.email,
@@ -28,10 +26,8 @@ function Login() {
         if (res.data.user.role === 0) {
           localStorage.setItem("feathers-jwt-token", res.data.accessToken);
           localStorage.setItem("feathers-id", res.data.user._id);
-
           dispatch(setLoginState(true));
           dispatch(setUserState(res.data.user));
-
           navigate("/dashboard");
         } else {
           message.error("paj jaoe shoryo");

@@ -289,7 +289,7 @@ function Supervisor() {
         </Form>
       </Modal>
       <Modal
-        title="Update  Supervisor"
+        title="Update Supervisor"
         footer={null}
         visible={isModalVisible1}
         onCancel={handleCancel}
