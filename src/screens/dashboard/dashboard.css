@@ -1,9 +1,9 @@
-.dashboardmain{
-    background-color: #0d3e02!important;
+.dashboardmain {
+  background-color: #0d3e02 !important;
 }
-.menuitems{
-font-size: 1.1rem!important;
-font-weight: 700;
-color: white;
-background-color:forestgreen;
+.menuitems {
+  font-size: 0.5rem !important;
+  font-weight: 700;
+  color: white;
+  background-color: forestgreen;
 }
