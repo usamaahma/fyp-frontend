@@ -74,21 +74,6 @@ function Login() {
     <div>
       {" "}
       <Row>
-        <Col span={12} className="column1">
-          <div>
-            <img
-              className="imgelgu"
-              alt="sasa"
-              src="https://paperpk.com/uploads/co_img/1551094690.png"
-            ></img>
-          </div>
-          <div>
-            <h1 className="h11">
-              Welcome To!
-              <br /> Login Page of FYP E'S SYSTEM
-            </h1>
-          </div>
-        </Col>
         <Col span={12} className="column2login">
           <div>
             <h2 className="h22">Login Account </h2>
@@ -147,6 +132,21 @@ function Login() {
           </Form>
           <br />
           <br />
+        </Col>
+        <Col span={12} className="column1">
+          <div>
+            <img
+              className="imgelgu"
+              alt="sasa"
+              src="https://paperpk.com/uploads/co_img/1551094690.png"
+            ></img>
+          </div>
+          <div>
+            <h1 className="h11">
+              Welcome To!
+              <br /> Login Page of FYP E'S SYSTEM
+            </h1>
+          </div>
         </Col>
       </Row>
     </div>
