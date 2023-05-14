@@ -85,7 +85,7 @@ function Login() {
           <div>
             <h1 className="h11">
               Welcome To!
-              <br /> Login Page of LGU FYP
+              <br /> Login Page of FYP E'S SYSTEM
             </h1>
           </div>
         </Col>
