@@ -37,8 +37,9 @@
 }
 .imgelgu {
   margin-top: 3rem;
-  display: flex;
-  justify-content: center;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
   width: 45rem;
   height: 10rem;
 }
