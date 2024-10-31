@@ -34,11 +34,9 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    if (isloggedin === false) {
-      return navigate("/");
-    } else {
+    
       setshow(true);
-    }
+   
   }, []);
 
   return (
